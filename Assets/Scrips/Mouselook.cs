@@ -46,55 +46,55 @@ public class Mouselook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) && hit.transform.GetComponent<Rigidbody>())
-            {
-                grabbedOBJ = hit.transform.gameObject;
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            if (holding == true)
-            {
-                grabbedOBJ.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                holding = false;
-                grabbedOBJ = null;
-            }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+            //if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) && hit.transform.GetComponent<Rigidbody>())
+            //{
+                //grabbedOBJ = hit.transform.gameObject;
+            //}
+        //}
+        //else if (Input.GetMouseButtonUp(0))
+       // {
+            //if (holding == true)
+            //{
+               // grabbedOBJ.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                //holding = false;
+                //grabbedOBJ = null;
+            //}
 
-        }
-
-
-        HoldingFunction();
+        //}
 
 
-        if (grabbedOBJ)
-        {
-            grabbedOBJ.GetComponent<Rigidbody>().velocity = 20 * (grabPos.position - grabbedOBJ.transform.position);
-            holding = true;
-        }
+        //HoldingFunction();
 
-    }
 
-    void HoldingFunction()
-    {
-        if (holding == true)
-        {
-            grabbedOBJ.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-        }
-        else if (holding == false)
-        {
+        //if (grabbedOBJ)
+        //{
+            //grabbedOBJ.GetComponent<Rigidbody>().velocity = 20 * (grabPos.position - grabbedOBJ.transform.position);
+            //holding = true;
+        //}
 
-        }
-        if (holding == true && Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Rotateingg");
-        }
+    //}
 
-        else if (!Input.GetKeyDown(KeyCode.E))
-        {
+    //void HoldingFunction()
+    //{
+        //if (holding == true)
+        //{
+            //grabbedOBJ.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+        //}
+        //else if (holding == false)
+        //{
 
-        }
+        //}
+        //if (holding == true && Input.GetKeyDown(KeyCode.E))
+        //{
+            //Debug.Log("Rotateingg");
+        //}
+
+        //else if (!Input.GetKeyDown(KeyCode.E))
+        //{
+
+        //}
     }
 }
 
